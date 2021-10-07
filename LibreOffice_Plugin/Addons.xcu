@@ -133,20 +133,5 @@
                 </node>
             </node>
         </node>
-        <node oor:name="Images">
-            <node oor:name="vnd.demo.complextoolbarcontrols.image1" oor:op="replace">
-                <prop oor:name="URL">
-                    <value>vnd.demo.complextoolbarcontrols.demoaddon:ImageButtonCmd</value>
-                </prop>
-                <node oor:name="UserDefinedImages">
-                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
-                        <value>%origin%/logo_small.png</value>
-                    </prop>
-                    <prop oor:name="ImageBigURL" oor:type="xs:string">
-                        <value>%origin%/logo_big.png</value>
-                    </prop>
-                </node>
-            </node>
-        </node>
     </node>
 </oor:component-data>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ * This file is part of the LibreOffice project.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * This file incorporates work covered by the following license notice:
+ *
+ *   Licensed to the Apache Software Foundation (ASF) under one or more
+ *   contributor license agreements. See the NOTICE file distributed
+ *   with this work for additional information regarding copyright
+ *   ownership. The ASF licenses this file to you under the Apache
+ *   License, Version 2.0 (the "License"); you may not use this file
+ *   except in compliance with the License. You may obtain a copy of
+ *   the License at http://www.apache.org/licenses/LICENSE-2.0 .
+-->
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" oor:name="Addons" oor:package="org.openoffice.Office">
+    <node oor:name="AddonUI">       
+	<node oor:name="OfficeToolBar">
+        
+            <node oor:name="vnd.demo.complextoolbarcontrols.demoaddon.toolbar" oor:op="replace">
+                <node oor:name="m1" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Word_Num_Spin</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en-US">Word count</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Spinfield</value>
+                    </prop>
+                    <prop oor:name="Width" oor:type="xs:long">
+                        <value>100</value>
+                    </prop>
+                </node>
+
+
+                <node oor:name="m2" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Lang_Dropdown</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en-US">Language choice</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Dropdownbox</value>
+                    </prop>
+                    <prop oor:name="Width" oor:type="xs:long">
+                        <value>200</value>
+                    </prop>
+                </node>
+
+                <node oor:name="m3" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Word_Len_Combo</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en-US">Max word length</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Combobox</value>
+                    </prop>
+                    <prop oor:name="Width" oor:type="xs:long">
+                        <value>100</value>
+                    </prop>
+                </node>
+
+                <node oor:name="m4" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Gen_Doc_Button</value>
+                    </prop>
+                    <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value/>
+                        <value xml:lang="en-US">New Doc</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument </value>
+                    </prop>
+                </node>
+
+                <node oor:name="m5" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Stats_Button</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en-US">Show char stats</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument </value>
+                    </prop>
+                </node>
+
+                <node oor:name="m6" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>vnd.demo.complextoolbarcontrols.demoaddon:Highlight_Cyrillic_Button</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en-US">Highlight Cyrillic</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument </value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>

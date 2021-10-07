@@ -70,7 +70,7 @@ void New_Doc_Creator(Reference < XFrame > & rxFrame, int global_lang, int global
     srand(time(NULL));
     for (std::size_t i = 0; i < globalWordCnt; i++) {
         OUString word = "";
-        for (std::size_t j = 0; j < std::rand() % (global_word_len + 1); j++) {
+        for (std::size_t j = 0; j < (1 + std::rand() % (global_word_len)); j++) {
             word += (OUString) langs[global_lang-1][rand() % langs[global_lang-1].length()];
         }
         text += word + " ";

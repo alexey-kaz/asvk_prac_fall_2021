@@ -21,17 +21,13 @@
 #define INCLUDED_EXAMPLES_COMPLEXTOOLBARCONTROLS_LISTENERHELPER_H
 
 #include <map>
-
 #include <vector>
 
 #include <com/sun/star/frame/XFrame.hpp>
-
 #include <com/sun/star/frame/XStatusListener.hpp>
-
 #include <com/sun/star/frame/XDispatch.hpp>
 
 #include <rtl/ustring.hxx>
-
 #include <cppuhelper/implbase1.hxx>
 
 typedef std::vector < com::sun::star::uno::Reference < com::sun::star::frame::XStatusListener > > StatusListeners;
@@ -41,44 +37,47 @@ typedef std::map < ::rtl::OUString, StatusListeners > ListenerMap;
 // For every frame there is *one* Dispatch object for all possible commands
 // this struct contains an array of listeners for every supported command
 // these arrays are accessed by a std::map (with the command string as index)
-struct ListenerItem {
+struct ListenerItem
+{
     ListenerMap aContainer;
-    ::com::sun::star::uno::Reference < com::sun::star::frame::XDispatch > xDispatch;
-    ::com::sun::star::uno::Reference < com::sun::star::frame::XFrame > xFrame;
+    ::com::sun::star::uno::Reference< com::sun::star::frame::XDispatch > xDispatch;
+    ::com::sun::star::uno::Reference< com::sun::star::frame::XFrame > xFrame;
 };
 
 typedef std::vector < ListenerItem > AllListeners;
 
-class ListenerHelper {
-    public:
-        void AddListener(
-            const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame,
-                const com::sun::star::uno::Reference < com::sun::star::frame::XStatusListener > xControl,
-                    const::rtl::OUString & aCommand);
+class ListenerHelper
+{
+public:
+    void AddListener(
+        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame,
+        const com::sun::star::uno::Reference < com::sun::star::frame::XStatusListener > xControl,
+        const ::rtl::OUString& aCommand );
     void RemoveListener(
-        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame,
-            const com::sun::star::uno::Reference < com::sun::star::frame::XStatusListener > xControl,
-                const::rtl::OUString & aCommand);
+        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame,
+        const com::sun::star::uno::Reference < com::sun::star::frame::XStatusListener > xControl,
+        const ::rtl::OUString& aCommand );
     void Notify(
-        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame,
-            const::rtl::OUString & aCommand,
-            com::sun::star::frame::FeatureStateEvent & rEvent);
+        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame,
+        const ::rtl::OUString& aCommand,
+        com::sun::star::frame::FeatureStateEvent& rEvent );
     com::sun::star::uno::Reference < com::sun::star::frame::XDispatch > GetDispatch(
-        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame,
-            const::rtl::OUString & aCommand);
+        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame,
+        const ::rtl::OUString& aCommand );
     void AddDispatch(
         const com::sun::star::uno::Reference < com::sun::star::frame::XDispatch > xDispatch,
-            const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame,
-                const::rtl::OUString & aCommand);
+        const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame,
+        const ::rtl::OUString& aCommand );
 };
 
-class ListenerItemEventListener: public cppu::WeakImplHelper1 < ::com::sun::star::lang::XEventListener >
+class ListenerItemEventListener : public cppu::WeakImplHelper1 < ::com::sun::star::lang::XEventListener >
 {
-    ::com::sun::star::uno::Reference < com::sun::star::frame::XFrame > mxFrame;
+    ::com::sun::star::uno::Reference< com::sun::star::frame::XFrame > mxFrame;
 public:
-    ListenerItemEventListener(const com::sun::star::uno::Reference < com::sun::star::frame::XFrame > & xFrame)
-        : mxFrame(xFrame) {}
-    virtual void SAL_CALL disposing(const com::sun::star::lang::EventObject & aEvent);
+    ListenerItemEventListener( const com::sun::star::uno::Reference < com::sun::star::frame::XFrame >& xFrame)
+        : mxFrame(xFrame)
+    {}
+    virtual void SAL_CALL disposing( const com::sun::star::lang::EventObject& aEvent );
 };
 
 #endif

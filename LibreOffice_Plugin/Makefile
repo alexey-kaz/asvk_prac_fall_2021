@@ -58,7 +58,7 @@ COMP_TYPEFLAG = $(OUT_MISC)/cpp_$(COMP_NAME)_types.flag
 CXXFILES = \
            MyProtocolHandler.cxx \
            ListenerHelper.cxx \
-           plugin_func.cxx \
+           PluginFunc.cxx \
            exports.cxx
 
 SLOFILES = $(patsubst %.cxx,$(OUT_COMP_SLO)/%.$(OBJ_EXT),$(CXXFILES))

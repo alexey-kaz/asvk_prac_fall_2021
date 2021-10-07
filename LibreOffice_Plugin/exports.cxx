@@ -25,19 +25,18 @@
 extern "C"
 {
 
-SAL_DLLPUBLIC_EXPORT void* SAL_CALL component_getFactory(const char* pImplName      ,
-                                                                void*     pServiceManager,
-                                                                void*     pRegistryKey   )
-{
-    if ( !pServiceManager || !pImplName )
+SAL_DLLPUBLIC_EXPORT void *SAL_CALL
+component_getFactory(const char *pImplName,
+                     void *pServiceManager,
+                     void *pRegistryKey) {
+    if (!pServiceManager || !pImplName)
         return 0;
 
-    css::uno::Reference< css::uno::XInterface > xFactory  ;
+    css::uno::Reference <css::uno::XInterface> xFactory;
     ::rtl::OUString sImplName = ::rtl::OUString::createFromAscii(pImplName);
 
-    if (sImplName == MYPROTOCOLHANDLER_IMPLEMENTATIONNAME)
-    {
-        css::uno::Sequence< ::rtl::OUString > lNames(1);
+    if (sImplName == MYPROTOCOLHANDLER_IMPLEMENTATIONNAME) {
+        css::uno::Sequence<::rtl::OUString> lNames(1);
         lNames[0] = MYPROTOCOLHANDLER_SERVICENAME;
         xFactory = ::cppu::createSingleComponentFactory(MyProtocolHandler_createInstance, sImplName, lNames);
     }
@@ -49,9 +48,9 @@ SAL_DLLPUBLIC_EXPORT void* SAL_CALL component_getFactory(const char* pImplName  
     return xFactory.get();
 }
 
-SAL_DLLPUBLIC_EXPORT void SAL_CALL component_getImplementationEnvironment(
-    char const ** ppEnvTypeName, uno_Environment **)
-{
+SAL_DLLPUBLIC_EXPORT void SAL_CALL
+component_getImplementationEnvironment(
+        char const **ppEnvTypeName, uno_Environment **) {
     *ppEnvTypeName = CPPU_CURRENT_LANGUAGE_BINDING_NAME;
 }
 

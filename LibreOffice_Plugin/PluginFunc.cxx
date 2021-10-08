@@ -66,6 +66,15 @@ void New_Doc_Creator(Reference <XFrame> &rxFrame, int global_lang, int globalWor
     return;
 }
 
+std::multimap<int, sal_Unicode> sort_mm(std::map<sal_Unicode, int>& m)
+{
+    std::multimap<int, sal_Unicode> multi;
+    for (auto& item: m){
+        multi.insert({item.second, item.first});
+    }
+    return multi;
+}
+
 void Stats(Reference <XFrame> &mxFrame) {
     std::map<sal_Unicode, int> stat_Table;
     Reference <XTextDocument> xTextDocument(mxFrame->getController()->getModel(), UNO_QUERY);
@@ -101,13 +110,13 @@ void Stats(Reference <XFrame> &mxFrame) {
         xTextCursor = xText->createTextCursor();
         xTextCursor->setString(OUString::createFromAscii(conf[i].second));
     }
-
-    for (std::map<sal_Unicode, int>::iterator it = stat_Table.begin(); it != stat_Table.end(); ++it, i++) {
+    std::multimap<int, sal_Unicode> stat_Table_mm = sort_mm(stat_Table);
+    for (std::multimap<int, sal_Unicode>::reverse_iterator it = stat_Table_mm.rbegin(); it != stat_Table_mm.rend(); ++it, i++) {
         xCell = xTable->getCellByName(OUString::createFromAscii(((char) ('A') + std::to_string(i)).c_str()));
         xTextCursor = Reference<XText>(xCell, UNO_QUERY)->createTextCursor();
-        xTextCursor->setString(OUString(it->first));
+        xTextCursor->setString(OUString(it->second));
         xCell = xTable->getCellByName(OUString::createFromAscii(((char) ('B') + std::to_string(i)).c_str()));
-        xCell->setValue(it->second);
+        xCell->setValue(it->first);
     }
     return;
 
